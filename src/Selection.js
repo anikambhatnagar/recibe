@@ -6,7 +6,7 @@ export function Selection({ setSelection }) {
 function submit(){}
 
     return (
-      <div id="buttonRow">
+      <div id="selectionRow">
         <button
           onClick={() => {
             setSelection("Find a random recipe");
@@ -16,8 +16,8 @@ function submit(){}
         </button>
 
         <form onSubmit={submit}>
-           <input value={content} onChange={(e) => setContent(e.target.value)} />
-           Search by ingredient
+            <input value={content} onChange={(e) => setContent(e.target.value)} />
+            Search by ingredient
         </form>
   
       </div>

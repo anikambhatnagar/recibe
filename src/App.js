@@ -28,7 +28,8 @@ export default function App() {
       </header>
 
       {selection === null ? (
-        <p>Search by ingredient or for a random recipe: </p>
+        //<p>Search for a recipe by ingredients you already have in your fridge, or search for a random recipe!<p/>
+        <Selection/>
       ) : selection === "Search by ingredient" ? (
         <p>{data?.ingredient}</p>
       ) : selection === "Find a random recipe" ? (
