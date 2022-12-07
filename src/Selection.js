@@ -2,8 +2,12 @@ import {useState} from "react"
 
 export function Selection({ setSelection }) {
 
-    const [content, setContent] = useState(null)
-function submit(){}
+    const [content, setContent] = useState("")
+function submit(e){
+  e.preventDefault();
+  setSelection(content);
+  setContent("");
+}
 
     return (
       <div id="selectionRow">

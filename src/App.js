@@ -9,16 +9,16 @@ export default function App() {
   useEffect(() => {
     if (selection === null) return;
 
+    console.log(selection);
     const url =
-      selection === "Search by Ingredient"
-        ? "https://www.themealdb.com/api/json/v1/1/filter.php?i=${encodeURIComponent(salection)}"
-        : selection === "Find a random recipe"
+      selection === "Find a random recipe"
         ? "https://www.themealdb.com/api/json/v1/1/random.php"
-        : null;
-
+        : `https://www.themealdb.com/api/json/v1/1/filter.php?i=${encodeURIComponent(selection)}`
+      
         fetch(url)
       .then((response) => response.json())
-      .then(setData);
+      .then(setData)
+      .catch((e) => setData(e));
   }, [selection]);
       
   return (
@@ -28,17 +28,28 @@ export default function App() {
       </header>
 
       {selection === null ? (
-        //<p>Search for a recipe by ingredients you already have in your fridge, or search for a random recipe!<p/>
-        <Selection/>
-      ) : selection === "Search by ingredient" ? (
-        <p>{data?.ingredient}</p>
-      ) : selection === "Find a random recipe" ? (
-        <p>{data?.meals}</p>
-      ) : null}
+        <Selection setSelection={setSelection} />
+      selection == "Find a random recipe" 
+        ? <Meals/>
+       : <SearchResults/> 
+      </div>
 
-      <selection setSelection={setSelection} />
-
-    </div>
   );
+  
+  function SearchResults() {
+     <div>
+       <p>{data?.meals?.[0]?.strMeal}</p>
+       <img alt="pic" src={data?.meals?.[0]?.strMealThumb} /> 
+     </div>
+  }
+
+  function Meal() {
+    <div>
+       <p>{data?.meals?.[0]?.strMeal}</p>
+       <img alt="pic" src={data?.meals?.[0]?.strMealThumb} /> 
+    </div>
+  }
+
+
 }
 
