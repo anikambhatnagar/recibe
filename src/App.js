@@ -28,10 +28,12 @@ export default function App() {
       </header>
 
       {selection === null ? (
+        <p>Click the button to generate a random recipe, or search recipe by ingredient! </p>
+      ) : selection === "Find a random recipe" ? (
+          root.render(<Meal/>)
+      ) : root.render(<SearchResults/>)
+        }
         <Selection setSelection={setSelection} />
-      selection == "Find a random recipe" 
-        ? <Meals/>
-       : <SearchResults/> 
       </div>
 
   );
