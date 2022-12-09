@@ -38,30 +38,41 @@ export default function App() {
           <Selection setSelection={setSelection} />
         </div>
       ) : selection === "Find a random recipe" ? (
-        <Meal />
+        <Meal data={data} />
       ) : (
-        <SearchResults />
+        <SearchResults data={data} />
       )}
     </div>
   );
+}
 
-  function SearchResults() {
-    return (
-      <div>
-        <p>Your search returned:</p>
-        <p>{data?.meals?.[0]?.strMeal}</p>
-        <img alt="pic" src={data?.meals?.[0]?.strMealThumb} />
-      </div>
-    );
-  }
+function Meal({ data }) {
+  return (
+    <div>
+      <p>We've selected this for you:</p>
+      <h2>{data?.meals?.[0]?.strMeal}</h2>
+      <p className="area">{data?.meals?.[0]?.strArea}</p>
+      <img alt="pic" width="300" src={data?.meals?.[0]?.strMealThumb} />
+      <pre className="instructions">{data?.meals?.[0]?.strInstructions}</pre>
+    </div>
+  );
+}
 
-  function Meal() {
-    return (
-      <div>
-        <p>We've selected this for you:</p>
-        <p>{data?.meals?.[0]?.strMeal}</p>
-        <img alt="pic" src={data?.meals?.[0]?.strMealThumb} />
-      </div>
-    );
-  }
+function SearchResults({ data }) {
+  return !data ? (
+    <p>Searching...</p>
+  ) : !data?.meals ? (
+    <p>No results</p>
+  ) : (
+    <div>
+      {data?.meals?.map((meal) => (
+        <div>
+          <p>{meal.strMeal}</p>
+          <p>
+            <img alt="pic" width="300" src={meal.strMealThumb} />
+          </p>
+        </div>
+      ))}
+    </div>
+  );
 }
