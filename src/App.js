@@ -25,7 +25,9 @@ export default function App() {
 
   return (
     <div className="App">
-      <header className="App-header">Welcome to Recibe!</header>
+      <header className="App-header" onClick={() => setSelection(null)}>
+        Welcome to Recibe!
+      </header>
 
       {selection === null ? (
         <div>
