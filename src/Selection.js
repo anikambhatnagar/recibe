@@ -1,16 +1,16 @@
-import {useState} from "react"
+import { useState } from "react";
 
 export function Selection({ setSelection }) {
+  const [content, setContent] = useState("");
+  function submit(e) {
+    e.preventDefault();
+    setSelection(content);
+    setContent("");
+  }
 
-    const [content, setContent] = useState("")
-function submit(e){
-  e.preventDefault();
-  setSelection(content);
-  setContent("");
-}
-
-    return (
-      <div id="selectionRow">
+  return (
+    <div>
+      <p>
         <button
           onClick={() => {
             setSelection("Find a random recipe");
@@ -18,13 +18,12 @@ function submit(e){
         >
           Find a random recipe
         </button>
-
-        <form onSubmit={submit}>
-            <input value={content} onChange={(e) => setContent(e.target.value)} />
-            Search by ingredient
-        </form>
-  
-      </div>
-    );
-  }
-  
+      </p>
+      <form onSubmit={submit}>
+        Search by ingredient
+        <br />
+        <input value={content} onChange={(e) => setContent(e.target.value)} />
+      </form>
+    </div>
+  );
+}
