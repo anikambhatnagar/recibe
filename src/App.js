@@ -26,15 +26,17 @@ export default function App() {
   return (
     <div className="App">
       <header className="App-header" onClick={() => setSelection(null)}>
-        Welcome to Recibe!
+        Recibe.
       </header>
 
       {selection === null ? (
         <div>
-          <p>
+          <p1>
+            Welcome !
+            
             Click the button to generate a random recipe, or search recipe by
             ingredient!
-          </p>
+          </p1>
           <Selection setSelection={setSelection} />
         </div>
       ) : selection === "Find a random recipe" ? (
