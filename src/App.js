@@ -31,8 +31,10 @@ export default function App() {
 
       {selection === null ? (
         <div>
+          <p></p>
           <p1>
-            Welcome !
+
+            Welcome ! 
             
             Click the button to generate a random recipe, or search recipe by
             ingredient!
