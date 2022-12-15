@@ -109,4 +109,9 @@ input {
   border-style:outset;
   padding-bottom: 10px;
   background-color: #f4d28a;
+  font-size: 15px
+}
+
+p3 {
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
