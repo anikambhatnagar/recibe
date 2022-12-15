@@ -20,8 +20,7 @@ export function Selection({ setSelection }) {
         </button>
       </p>
       <form onSubmit={submit}>
-        Search by ingredient
-        <br />
+        <p3 class = "prompt">Search by ingredient: &nbsp; </p3>
         <input value={content} onChange={(e) => setContent(e.target.value)} />
       </form>
     </div>
