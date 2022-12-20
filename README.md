@@ -4,6 +4,8 @@ This webapp allows users who don't know what to cook for dinner and are needing 
 
 This project was created using Create React through VS Code.  Google's Firebase was used to host this application and the API we used was TheMealDB.
 
-Link:  https://www.themealdb.com/api.php?ref=apilist.fun
+API Link:  https://www.themealdb.com/api.php?ref=apilist.fun
+
+Google Docs Ideation Link:  https://docs.google.com/document/d/1mvSJtaTiRfj0YJwCGH_r9fxRGpNgkURIwLo0685gLTk/edit?usp=sharing&resourcekey=0-aZmyGUf05BqSEywxyyaYoA
 
 Contributors:  Anika Bhatnagar, Ria Singh, Dev Raiyana, Milla Penelope Markovic
